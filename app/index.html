@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="en" ng-app="coolApp">
+<html lang="en">
 <head>
   <meta charset="utf-8">
+
   <title>Cloud Arc Starter</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
   <link rel="stylesheet" href="styles/angular-material.css" />
@@ -17,39 +18,54 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.1/angular-material.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
-
-  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="js/app.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/services.js"></script>
 </head>
-<body layout="column">
-  <!-- start toolbar module -->
-  <md-toolbar layout="row" class="md-whiteframe-4dp">
-    <h3>Cloud Arc Starter</h3>
+<body layout="row" ng-app="coolApp" class="KENANRULESLOL" ng-cloak>
 
+  <div flex layout="column" class="boxWithHeight" layout-padding>
 
-    <md-button class="menu"  ng-click="openLeftMenu()">
-        <md-icon md-svg-icon="menu" ></md-icon>
-    </md-button>
-  </md-toolbar>
+    <md-content class="md-whiteframe-z1" ng-view flex="70">
 
-
-  <div flex layout="row">
-    <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" ng-click="ul.toggleList()" class="md-whiteframe-4dp" >
-
-    </md-sidenav>
-
-
-
-
-    <md-content ng-view flex id="content">
     </md-content>
+    <section flex="20">
 
-
+    </section>
+    <section flex >
+      <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+    </section>
   </div>
+  <div flex="20" layout="column" class="boxWithHeight" layout-padding>
+    flex="30"
+    <section flex="40">
+        <iframe  class="md-whiteframe-z1" src="https://open.spotify.com/embed?uri=spotify:user:tactwork:playlist:1fPOSOK63yfMA96GyXUwaQ&theme=white&view=coverart" width="100%" height="330" frameborder="0" allowtransparency="true"></iframe>
+        <md-input-container>
+          <label for="sortInput">Search</label>
+          <input id="sortInput" type="text" ng-model="searchText">
+
+        </md-input-container>
+        <md-input-container>
+          <md-select name="orderBy" ng-model="orderBy">
+            <md-option value="header">header</md-option>
+            <md-option value="title">header</md-option>
+            <md-option value="content">content</md-option>
+            <md-option name="timestamp" value="timestamp">timestamp</md-option>
+          </md-select>
+        </md-input-container>
+    </section>
+    <section flex>
+
+    </section>
+  </div>
+
+
+  <!-- start toolbar module -->
+
+
+
   <!-- <section layout="row" flex>
     <md-sidenav md-component-id="left" class="md-sidenav-left">
       <md-input-container>

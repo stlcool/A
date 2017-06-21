@@ -1,34 +1,21 @@
+<article>
+<li ng-repeat="section in posts | filter:query | orderBy:orderProp"
+        class="thumbnail phone-listing">
+      <a href="#/posts/{{section.id}}" class="thumb"><img ng-src="{{section.imageUrl}}" alt="{{section.name}}"></a>
+      <a href="#/posts/{{section.id}}">{{section.name}}</a>
+      <p>{{section.snippet}}</p>
+    </li>
+  <!--You can use md-no-sticky class-->
+  <!-- arrays are fully sortable and filterable -->
+  <section ng-bind-html="post.content" ng-repeat="post in posts | orderBy:orderBy | filter:searchText">
+    <md-subheader class="md-primary"> {{ post.title }} </md-subheader>
+    <p class="md-headline">{{ post.snippet }}</p>
 
-<div>
-
-  <md-input-container>
-    <md-select name="orderBy" ng-model="orderBy">
-      <md-option value="header">header</md-option>
-      <md-option value="content">content</md-option>
-      <md-option name="timestamp" value="timestamp">timestamp</md-option>
-    </md-select>
-  </md-input-container>
-  <md-input-container>
-    <label for="sortInput">Sort</label>
-    <input id="sortInput" type="text" ng-model="searchText">
-
-  </md-input-container>
-
-
-  <article>
-    <!-- arrays are fully sortable and filterable -->
-    <section ng-bind-html="post.content" ng-repeat="post in posts | orderBy:orderBy | filter:searchText">
-      {{ post.content }}
-      <md-subheader>{{ post.name }}</md-subheader><!--You can use md-no-sticky class-->
-      <p class="md-headline">{{ post.snippet }}</p>
-
-      <!-- delete a message using $remove -->
-    </section>
-    <section>
-      <ul>
-        <li ng-repeat="article in articles">{{ article.items.id}}</li>
-      </ul>
-    </section>
-  </article>
-
-</div>
+    <!-- delete a message using $remove -->
+  </section>
+  <section>
+    <ul>
+      <li ng-repeat="item in articles">{{ item.$id}}</li>
+    </ul>
+  </section>
+</article>

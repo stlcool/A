@@ -4,22 +4,22 @@
 
 var coolControllers = angular.module('coolControllers', ['ngSanitize']);
 
-// coolControllers.controller('CoolListCtrl', ['$scope', 'Post',
-//   function($scope, Post) {
-//     $scope.posts = Post.query();
-//     $scope.orderProp = 'age';
-//   }]);
+coolControllers.controller('CoolListCtrl', ['$scope', 'Post',
+  function($scope, Post) {
+    $scope.posts = Post.query();
+    $scope.orderProp = 'age';
+  }]);
 
-// coolControllers.controller('CoolDetailCtrl', ['$scope', '$routeParams', 'Post',
-//   function($scope, $routeParams, Post) {
-//     $scope.post = Post.get({postId: $routeParams.postId}, function(post) {
-//       $scope.mainImageUrl = post.images[0];
-//     });
+coolControllers.controller('CoolDetailCtrl', ['$scope', '$routeParams', 'Post',
+  function($scope, $routeParams, Post) {
+    $scope.post = Post.get({postId: $routeParams.postId}, function(post) {
+      $scope.mainImageUrl = post.images[0];
+    });
 
-//     $scope.setImage = function(imageUrl) {
-//       $scope.mainImageUrl = imageUrl;
-//     };
-//   }]);
+    $scope.setImage = function(imageUrl) {
+      $scope.mainImageUrl = imageUrl;
+    };
+  }]);
 // coolControllers.controller('CoolSideNavCtrl', function($scope, $mdSidenav, $firebaseArray) {
 //   var ref = firebase.database().ref().child("articles");
 //   // create a synchronized array
@@ -29,15 +29,15 @@ var coolControllers = angular.module('coolControllers', ['ngSanitize']);
 //     $mdSidenav('left').toggle();
 //   };
 // });
-// coolControllers.controller('CoolAppCtrl', function($scope, $mdSidenav, $firebaseArray) {
-//   var ref = firebase.database().ref().child("articles");
-//   // create a synchronized array
-//   // click on `index.html` above to see it used in the DOM!
-//   $scope.articles = $firebaseArray(ref);
-//   $scope.openLeftMenu = function() {
-//     $mdSidenav('left').toggle();
-//   };
-// });
+coolControllers.controller('CoolAppCtrl', function($scope, $mdSidenav, $firebaseArray) {
+  var ref = firebase.database().ref().child("articles");
+  // create a synchronized array
+  // click on `index.html` above to see it used in the DOM!
+  $scope.articles = $firebaseArray(ref);
+  $scope.openLeftMenu = function() {
+    $mdSidenav('left').toggle();
+  };
+});
 // coolControllers.controller('CoolChatCtrl', function($scope, $firebaseArray){
 //     var ref = firebase.database().ref().child("about");
 //   // create a synchronized array
@@ -85,6 +85,7 @@ coolControllers.controller("PostCtrl", ["$scope", "articlePosts",
         $scope.posts.$add({
           header: "Uri",
           content: "Hello!",
+          title: "Helllo world!",
           timestamp: firebase.database.ServerValue.TIMESTAMP
         });
       }

@@ -14,8 +14,8 @@ var coolApp = angular.module('coolApp', [
 ]);
 coolApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('teal')
-    .accentPalette('amber');
+    .primaryPalette('indigo')
+    .accentPalette('red');
 });
 coolApp.config(['$routeProvider',
   function($routeProvider) {
@@ -24,14 +24,14 @@ coolApp.config(['$routeProvider',
         templateUrl: 'partials/home.html',
         controller: 'PostCtrl'
       }).
-      // when('/posts', {
-      //   templateUrl: 'partials/phone-list.html',
-      //   controller: 'CoolListCtrl'
-      // }).
-      // when('/posts/:postId', {
-      //   templateUrl: 'partials/phone-detail.html',
-      //   controller: 'CoolDetailCtrl'
-      // }).
+      when('/posts', {
+        templateUrl: 'partials/phone-list.html',
+        controller: 'CoolListCtrl'
+      }).
+      when('/posts/:postId', {
+        templateUrl: 'partials/phone-detail.html',
+        controller: 'CoolDetailCtrl'
+      }).
       when('/about', {
         templateUrl: 'partials/about.html',
       }).

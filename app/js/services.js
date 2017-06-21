@@ -19,8 +19,8 @@ var coolServices = angular.module('coolServices', ['ngResource', 'firebase']);
 //   }
 // ]);
 coolServices.factory("articlePosts", ["$firebaseArray",
-  function($firebaseArray) {
-    // create a reference to the database where we will store our data
+  function($firebaseArray)
+{    // create a reference to the database where we will store our data
     var ref = firebase.database().ref("articles").child("items");
 
     return $firebaseArray(ref);
